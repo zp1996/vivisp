@@ -2,7 +2,7 @@ const util = require("../common/util"),
 	fs = require("fs");
 
 exports.show = util.render("./views/home/index.jade", {
-	title: "lsgo-cli anthor is zp",
+	title: "vivi视频",
 	welcome: "Hello World",
 	pretty: true
 });
