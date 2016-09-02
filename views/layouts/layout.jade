@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		meta(name="description", content="视频学习网站")
+		meta(name="author", content="zp1996")
+		meta(charset="utf-8")
+		link(rel="shortcut icon", type="image/x-icon", href="favicon.ico")
+		link(rel="stylesheet", type="text/css", href="css/main.css")
+		link(rel="stylesheet", type="text/css", href="css/common.css")
+		title #{title}
+	body
+		// header start
+		include header
+		// header end
+		div.main
+			block content
+		// footer start
+		include footer
+		// footer end
