@@ -2,17 +2,10 @@ const util = require("../common/util"),
 	fs = require("fs");
 
 exports.show = util.render("./views/home/index.jade", {
-	title: "vivi视频",
-	welcome: "Hello World",
-	pretty: true
+	title: "",
+	welcome: "Hello World"
 });
 
-exports.error = (req, res) => {
-	fs.readFile("./views/404.html", (error, data) => {
-		if (error) {
-			res.status(500).end("Server error");
-		} else {
-		 	res.status(200).end(data);
-		}
-	});
-};
+exports.error = util.render("./views/404.jade", {
+	title: "404-"
+}, 404);

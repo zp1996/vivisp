@@ -5,6 +5,7 @@ const gulp = require("gulp"),
 	uglify = require("gulp-uglify"),
 	cleanCss = require("gulp-clean-css"),
 	imagemin = require("gulp-imagemin"),
+	concat = require("gulp-concat"),
 	filePath = [
 		`${__dirname}/src/less/**/*.less`,
 		`${__dirname}/src/js/**/*.js`,
@@ -14,6 +15,7 @@ const gulp = require("gulp"),
 gulp.task("less", () => {
 	return gulp.src(filePath[0])
 						 .pipe(less())
+						 .pipe(concat("main.min.css"))
 						 .pipe(cleanCss())    // 上线后打开
 						 .pipe(gulp.dest("./build/css"));
 });
