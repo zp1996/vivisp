@@ -1,0 +1,1 @@
+"use strict";function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(exports,"__esModule",{value:!0});var _lsgo=require("./lsgo"),_lsgo2=_interopRequireDefault(_lsgo);console.log(_lsgo2.default),exports.default=Slide;

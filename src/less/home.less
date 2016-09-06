@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+@hh: 600px;
+.slider-box{
+	position: relative;
+	height: @hh;
+	text-align: center;
+}
+.slide-img{
+	position: absolute;
+	left: 50%;
+	margin-left: -960px;
+}
+.propagate li{
+	width: 100%;
+	position: absolute;
+	overflow: hidden;
+	line-height: @hh;
+	color: #B3B3B3;
+	font-weight: 700;
+	font-size: 24px;
+	z-index: 1;
+	// opacity: 0;
+}
+#slide-active{
+	z-index: 9;
+	// opacity: 1;
+}
+.propagate{
+	// height: @hh;
+	// position: absolute;
+	// top: 0px;
+	// left: 0px;
+}

@@ -1,4 +1,14 @@
+mixin slide(url, show)
+	if show
+		li#slide-active
+			img.slide-img(data-loaded="1", src="#{url}")
+	else
+		li ViVi视频		
+			img.slide-img(data-url="#{url}", data-loaded="0") 
 extend ../layouts/layout
 block content
-	div.main-logo
-	h1.welcome #{welcome}
+	div.slider-box
+		ol.propagate
+			+slide("images/slider-one.jpg", 1)
+			+slide("images/slider-two.jpg", 0)
+			+slide("images/slider-three.jpg", 0)
