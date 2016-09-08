@@ -13,10 +13,6 @@ module.exports = {
 			{
 				test: /\.js$/,
 				loaders: ["babel?presets[]=es2015"]
-			},
-			{
-				test: /\.less$/,
-				loaders: ["style", "css", "less"]
 			}
 		]
 	}
