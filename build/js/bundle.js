@@ -44,29 +44,28 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(2);
+	module.exports = __webpack_require__(1);
 
 
 /***/ },
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _slide = __webpack_require__(3);
+	var _slide = __webpack_require__(2);
 
 	var _slide2 = _interopRequireDefault(_slide);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 3 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _lsgo = __webpack_require__(4);
+	var _lsgo = __webpack_require__(3);
 
 	var _lsgo2 = _interopRequireDefault(_lsgo);
 
@@ -168,7 +167,7 @@
 	}, false);
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;"use strict";
