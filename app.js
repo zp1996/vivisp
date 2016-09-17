@@ -5,7 +5,7 @@ const path = require("path"),
 
 app.set("port", process.env.PORT || 2015);
 
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "build/")));
 
 app.use(router);
 
