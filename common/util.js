@@ -1,4 +1,5 @@
-const jade = require("jade");
+const jade = require("jade"),
+	test = require("../models/test");
 
 exports.render = (path, data, status) => {
 	status = status || 200;
