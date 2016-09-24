@@ -16,4 +16,7 @@ html
 		// footer start
 		include footer
 		// footer end
-		script(type="text/javascript", src="js/bundle.js")
+		script(type="text/javascript", src="js/vendor.js")
+		if (js)
+			- for (var i = 0; i < js.length; i++)
+				script(type="text/javascript", src="js/#{js[i]}")

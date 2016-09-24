@@ -56,6 +56,22 @@ header{
 	color: #B5BDC0;
 	font-size: 24px;
 }
+@fc: rgb(201, 57, 74);
+.to-login{
+	@h: 33px;
+	.size(84px, @h);
+	.tc();
+	color: @fc;
+	line-height: @h;
+	float: right;
+	margin: (@hh - @h) / 2 20px 0 0;
+	border: 2px solid @fc;
+	border-radius: 15px;
+}
+.to-login:hover{
+	background: @fc;
+	color: #fff;
+}
 
 .main{
 	.auto();

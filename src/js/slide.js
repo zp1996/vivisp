@@ -8,7 +8,6 @@ function Img (ele) {
 Img.prototype.load = function () {
 	this.ele.attr("src", this.url);
 };
-
 const wrapper = $(".slider-box"),
 	lis = wrapper.find("li"),
 	imgs = wrapper.find("img"),
@@ -33,7 +32,7 @@ function setTimer () {
 }
 
 $.each(dots, (ele, i) => {
-	ele.onmousemove = function () {
+	ele.onclick = function () {
 		clearInterval(timer);
 		timer = null;
 		if (i === active_num) {

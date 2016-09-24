@@ -1,0 +1,75 @@
+@charset "utf-8";
+@import "./util";
+
+.login-container{
+	.width();
+	padding: 10px;
+	margin: auto;
+}
+.login-wrapper{
+	width: 400px;
+	margin: 50px auto;
+	border: 1px solid #d0d6d9;
+}
+.login-in{
+	.fz(20px);
+	color: #fff;
+	text-indent: 35px;
+	font-weight: 100;
+}
+.rl-header{
+	@h: 60px;
+	.size(400px, @h);
+	line-height: @h;
+	margin-bottom: 30px;
+	background: #be3948;
+}
+.rlf-group{
+	.size(320px, 70px);
+	margin: auto;
+}
+.rlf-input{
+	.size(260px, 24px);
+	border: 1px solid #d0d6d9;
+	padding: 7px 7px 7px 48px;
+}
+.attention{
+	color: #be3948;
+	font-size: 12px;
+}
+.error{
+	border: 1px solid #be3948;	
+}
+.email{
+	background: url("../images/rl-sprite.png") no-repeat;
+	background-position: -80px -678px;
+}
+.password{
+	background: url("../images/rl-sprite.png") no-repeat;
+	background-position: -80px -774px;
+}
+.auto-login{
+	cursor: pointer;
+	position: relative;
+	top: -2px;
+}
+.al-font{
+	.fz(15px);
+	color: #787B7B;
+}
+.al-label{
+	.al-font;
+}
+.forget-pw{
+	float: right;
+	.al-font;
+}
+.forget-pw:hover{
+	color: #be3948;
+}
+.rl-options{
+	height: 50px;
+}
+.btns{
+	margin-top: -15px;
+}

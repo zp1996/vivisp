@@ -1,0 +1,19 @@
+extend ../layouts/layout
+block content
+	div.login-container
+		div.login-wrapper
+			div.rl-header
+				h1.login-in 登录
+			from
+				div.rlf-group
+					input.rlf-input.email.error(type="text", placeholder="请输入登录邮箱")
+					p.attention 注意有错了，厉害了
+				div.rlf-group
+					input.rlf-input.password(type="password", placeholder="请输入密码")
+				div.rlf-group.rl-options
+					input.auto-login(type="checkbox" checked) 
+					label.al-label 自动登录
+					a.forget-pw(href="javascript: void(0);") 忘记密码？
+				div.rlf-group.btns
+					a.sign-up(href="./singup") 立即注册
+					button.signin 登录
