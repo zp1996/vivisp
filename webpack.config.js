@@ -1,8 +1,9 @@
-const webpack = require("webpack");
-
+const webpack = require("webpack"),
+	path = "./src/js/";
 module.exports = {
 	entry: {
-		home: "./src/js/home.js",
+		home: `${path}home.js`,
+		login: `${path}login.js`,
 		vendor: ["./src/js/lsgo.js"]
 	},
 	output: {

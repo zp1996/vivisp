@@ -6,12 +6,13 @@ block content
 				h1.login-in 登录
 			from
 				div.rlf-group
-					input.rlf-input.email.error(type="text", placeholder="请输入登录邮箱")
-					p.attention 注意有错了，厉害了
+					input.rlf-input#email(type="text", placeholder="请输入登录邮箱")
+					p.attention
 				div.rlf-group
-					input.rlf-input.password(type="password", placeholder="请输入密码")
+					input.rlf-input#password(type="password", placeholder="请输入密码")
+					p.attention
 				div.rlf-group.rl-options
-					input.auto-login(type="checkbox" checked) 
+					input#auto-login(type="checkbox" checked) 
 					label.al-label 自动登录
 					a.forget-pw(href="javascript: void(0);") 忘记密码？
 				div.rlf-group.btns
