@@ -1,3 +1,12 @@
+function obj2str (obj) {
+	const keys = Object.keys(obj),
+		len = keys.length;
+	var str = "";
+	for (let i = 0; i < len; i++) {
+		str += keys[i] + '=' + obj[keys[i]] + '&';
+	}
+	return str.substring(0, str.length - 1);
+}
 function handler (resolve, reject) {
 	if (this.readyState !== 4) {
 		return void 0;
@@ -8,23 +17,14 @@ function handler (resolve, reject) {
 		reject();
 	}
 }
-function obj2str (obj) {
-	const keys = Object.keys(obj),
-		len = keys.length;
-	var str = "";
-	for (let i = 0; i < len; i++) {
-		str += keys[i] + '=' + obj[keys[i]] + '&';
-	}
-	return str.substring(0, str.length - 1);
-}
 const Ajax = {
-	post:  (url, data) => {
+	post: (url, data) => {
 		return new Promise((resolve, reject) => {
 			var xhr = new XMLHttpRequest();
 			xhr.open("post", url);
 			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xhr.send(obj2str(data));
-			xhr.onreadystatechange = handler(resolve, reject);
+			xhr.onreadystatechange = handler.bind(xhr)(resolve, reject);
 		});
 	},
 };

@@ -13,6 +13,9 @@ exports.login = util.render("./views/home/login.jade", {
 	js: ["login.bundle.js"]
 });
 
+exports.signin = function (req, res) {
+	res.send("successed");
+};
 
 exports.error = util.render("./views/404.jade", {
 	title: "404-"
