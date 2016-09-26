@@ -24,7 +24,9 @@ const Ajax = {
 			xhr.open("post", url);
 			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xhr.send(obj2str(data));
-			xhr.onreadystatechange = handler.bind(xhr)(resolve, reject);
+			xhr.onreadystatechange = function () {
+				handler.call(this, resolve, reject);
+			}
 		});
 	},
 };

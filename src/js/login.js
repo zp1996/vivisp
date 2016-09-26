@@ -15,5 +15,11 @@ const validate = Validator({
 	}
 });
 $("#sign-in").get(0).onclick = function () {
-	validate.submit("./login");
+	validate.submit("./login")
+					.then((res) => {
+						res = JSON.parse(res);
+						console.log(res);
+					}, () => {
+						console.log(1.12);
+					});
 };

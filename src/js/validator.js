@@ -65,7 +65,7 @@ p.submit = function (url) {
 			return void 0;
 		}
 	}
-	Ajax.post(url, cache);
+	return Ajax.post(url, cache);
 };
 function hasError (ele, text) {
 	var p = ele.parent().find(".attention");
