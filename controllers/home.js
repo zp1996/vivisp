@@ -3,15 +3,6 @@ const util = require("../common/util"),
 	student = require("../models/student"),
 	week = 7 * 24 * 3600 * 1000;
 
-function setCookie (res, obj) {
-	res.cookie('user', {
-		uid: obj['_id'],
-		token: `${obj['password']}`
-	}, {
-		expires: obj["auto"] ? new Date(Date.now() + week) : 0
-	});
-}
-
 exports.show = util.render("./views/home/index.jade", {
 	title: "",
 	welcome: "Hello World",
@@ -30,8 +21,19 @@ exports.login = function (req, res) {
 };
 
 exports.signin = function (req, res) {
-	student.findByEmail(req.body.email);
-	res.json({msg: "successed"});
+	const password = req.body.password,
+		email = req.body.email;
+	student.findByEmail(email, (err, data) => {
+		if (err) {
+			return res.json({msg: "服务器繁忙,请您稍后再试", flag: 0});
+		}
+		if (!data) {
+			return res.json({msg: "该用户不存在,抓紧去注册吧", flag: 0});
+		}
+		if (data.password === util.md5(password)) {
+			return res.json({msg: "登录成功了", flag: 1});
+		}
+	});
 };
 
 exports.error = util.render("./views/404.jade", {

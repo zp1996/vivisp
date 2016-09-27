@@ -1,5 +1,6 @@
 const jade = require("jade"),
-	test = require("../models/test");
+	crypto = require("crypto"),
+	md5 = crypto.createHash("md5");
 
 exports.render = (path, data, status) => {
 	status = status || 200;
@@ -9,4 +10,8 @@ exports.render = (path, data, status) => {
 		const html = jade.renderFile(path, data);
 		res.status(status).end(html);
 	};
+};
+exports.md5 = (text) => {
+	text = String(text);
+	return md5.update(text).digest("hex");
 };
