@@ -4,8 +4,10 @@ const path = require("path"),
 	bodyparser = require("body-parser"),
 	mongoose = require("mongoose"),
 	session = require("express-session"),
+	sign = require("./common/sign"),
 	app = new express();
 
+mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/vivisp");
 
 app.set("port", process.env.PORT || 2015);
@@ -16,9 +18,10 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: false}));
 
 app.use(session({
-	secret: "keyboard"
+	secret: "zp1996"
 }));
 
+app.use("/login", sign);
 app.use(router);
 
 app.listen(app.get("port"), () => {

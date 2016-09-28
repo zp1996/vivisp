@@ -20,6 +20,23 @@ exports.login = function (req, res) {
 	})(req, res);
 };
 
+const handles = {
+	valnull: (req, res) => {
+		return res.json({msg: "该用户不存在,抓紧去注册吧", flag: 0});
+	},
+	valfalse: (req, res) => {
+		return res.json({msg: "密码错误", flag: 0});
+	},
+	valtrue: (req, res, id) => {
+		req.session.uid = id;
+		req.session.save((err) => {
+			if (!err) {
+				return res.json({msg: "登录成功了", flag: 1});
+			}								
+		});
+	}
+};
+
 exports.signin = function (req, res) {
 	const password = req.body.password,
 		email = req.body.email;
@@ -27,12 +44,10 @@ exports.signin = function (req, res) {
 		if (err) {
 			return res.json({msg: "服务器繁忙,请您稍后再试", flag: 0});
 		}
-		if (!data) {
-			return res.json({msg: "该用户不存在,抓紧去注册吧", flag: 0});
-		}
-		if (data.password === util.md5(password)) {
-			return res.json({msg: "登录成功了", flag: 1});
-		}
+		var id = data && data["_id"];
+		data = `val${data ? data.password === util.md5(password) : 
+									data}`;
+		handles[data](req, res, id);
 	});
 };
 
