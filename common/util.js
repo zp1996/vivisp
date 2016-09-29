@@ -1,7 +1,7 @@
 const jade = require("jade"),
-	crypto = require("crypto"),
-	md5 = crypto.createHash("md5");
+	crypto = require("crypto");
 
+// 页面渲染
 exports.render = (path, data, status) => {
 	status = status || 200;
 	data.pretty = true;
@@ -11,7 +11,7 @@ exports.render = (path, data, status) => {
 		res.status(status).end(html);
 	};
 };
-exports.md5 = (text) => {
-	text = String(text);
-	return md5.update(text).digest("hex");
+// 密码加密
+exports.encrypt = (text) => {
+	return crypto.createHash("md5").update(String(text)).digest("hex");
 };

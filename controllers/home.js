@@ -5,18 +5,19 @@ const util = require("../common/util"),
 
 exports.show = util.render("./views/home/index.jade", {
 	title: "",
-	welcome: "Hello World",
-	login: undefined,
 	js: ["home.bundle.js"]
 });
 
 exports.login = function (req, res) {
+	console.log(util.encrypt(123456));
+	console.log(util.encrypt(123456));
 	if (req.session && req.session.user) {
 		return res.redirect("./");
 	} 
 	util.render("./views/home/login.jade", {
 		title: "登录-",
-		js: ["login.bundle.js"]
+		js: ["login.bundle.js"],
+		need: true
 	})(req, res);
 };
 
@@ -36,18 +37,17 @@ const handles = {
 		});
 	}
 };
-
 exports.signin = function (req, res) {
 	const password = req.body.password,
 		email = req.body.email;
-	student.findByEmail(email, (err, data) => {
+	student.findByEmail("1179258516@qq.com", (err, data) => {
 		if (err) {
 			return res.json({msg: "服务器繁忙,请您稍后再试", flag: 0});
 		}
 		var id = data && data["_id"];
-		data = `val${data ? data.password === util.md5(password) : 
+		data = `val${data ? data.password === util.encrypt(password) : 
 									data}`;
-		handles[data](req, res, id);
+		return handles[data](req, res, id);
 	});
 };
 
