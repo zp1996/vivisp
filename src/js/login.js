@@ -1,6 +1,5 @@
 import Validator from "./validator";
 import $ from "./lsgo";
-import layer from "./layer";
 
 const validate = Validator({
 	email: {
@@ -15,22 +14,34 @@ const validate = Validator({
 		ele: "#auto-login"
 	}
 });
+const mask = {
+	show: () => {
+		$("#mask").css({ display: "block" });		
+	},
+	hide: () => {
+		$("#mask").css({ display: "none" });		
+	}
+};
 var flag = false;
 $("#sign-in").get(0).onclick = function () {
 	if (flag) return void 0;
-	var submit = validate.submit("./login")
-	submit && (() => {
-		flag = true;
-		submit.then((res) => {
-								flag = false;
-								res = JSON.parse(res);
-								if (res.flag) {
-									window.location.href = "./";
-								}
-								console.log(res.msg);
-							}, () => {
-								flag = false;
-								console.log(1.12);
-							});
-	})();
+	var submit = validate.submit("./login");
+	if (submit) {
+		mask.show();
+		(() => {
+			flag = true;
+			submit.then((res) => {
+									flag = false;
+									res = JSON.parse(res);
+									if (res.flag) {
+										return window.location.href = "./";
+									}
+									mask.hide();
+									validate.eles[res.ele].throwError(res.msg);
+								}, () => {
+									flag = false;
+									console.log(1.12);
+								});
+		})();
+	}
 };

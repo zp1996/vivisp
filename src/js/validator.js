@@ -33,6 +33,9 @@ p.init = function (obj) {
 			}
 		});
 		this.eles[key] = ele.get(0);
+		this.eles[key].throwError = function (text) {
+			hasError($(this), text).throwError();
+		};
 		if (clicks.indexOf(type) === -1) {
 			this.flag[key] = false;
 			ele.get(0).onchange = function () {
