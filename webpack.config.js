@@ -4,7 +4,8 @@ module.exports = {
 	entry: {
 		home: `${path}home.js`,
 		login: `${path}login.js`,
-		vendor: ["./src/js/lsgo.js"]
+		signup: `${path}signup.js`,
+		vendor: ["./src/js/lsgo.js", "./src/js/util.js"]
 	},
 	output: {
 		path: `${__dirname}/build/js`,

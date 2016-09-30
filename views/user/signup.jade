@@ -1,0 +1,22 @@
+extend ../layouts/layout
+block content
+	div.login-container
+		div.login-wrapper
+			div.rl-header
+				h1.login-in 注册
+			from
+				div.rlf-group
+					input.rlf-input#username(type="text", placeholder="请输入用户名")
+					p.attention
+				div.rlf-group
+					input.rlf-input#email(type="text", placeholder="请输入邮箱")
+					p.attention
+				div.rlf-group
+					input.rlf-input#password(type="password", placeholder="请输入密码")
+					p.attention
+				div.rlf-group
+					input.rlf-input#repassword(type="password", placeholder="请确认密码")
+					p.attention#attention
+				div.rlf-group.btns
+					a#sign-up.rlf-btn(href="./userlogin") 返回登录
+					button#sign-in.rlf-btn 注册

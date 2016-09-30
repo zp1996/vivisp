@@ -4,7 +4,6 @@ const path = require("path"),
 	bodyparser = require("body-parser"),
 	mongoose = require("mongoose"),
 	session = require("express-session"),
-	sign = require("./common/sign"),
 	app = new express();
 
 mongoose.Promise = global.Promise;
@@ -21,7 +20,6 @@ app.use(session({
 	secret: "zp1996"
 }));
 
-app.use("/login", sign);
 app.use(router);
 
 app.listen(app.get("port"), () => {

@@ -1,11 +1,16 @@
 const express = require("express"),
 	home = require("./controllers/home"),
+	user = require("./controllers/user"),
+	sign = require("./common/sign"),
 	router = express.Router();
 // 首页
 router.get('/', home.show);
-// 登录页面
-router.get("/login", home.login);
-router.post("/login", home.signin);
+// 用户相关
+router.use("/user*", sign);
+router.get("/userlogin", user.login);
+router.post("/userlogin", user.signin);
+router.get("/usersignup", user.signup);
+router.post("/usersignup", user.newsignup);
 // 404 not Found
 router.use(home.error);
 

@@ -38,11 +38,11 @@ p.init = function (obj) {
 		};
 		if (clicks.indexOf(type) === -1) {
 			this.flag[key] = false;
-			ele.get(0).onchange = function () {
+			ele.get(0).onchange = ele.get(0).onkeyup = function () {
 				var errorHandle = null;
 				return () => {
 					let val = Validator.getValue(ele, type);
-					if (pattern[key](val)) {
+					if (pattern[key](val, ele.attr("id"))) {
 						this.flag[key] = true;
 						this.data[key] = val;
 						errorHandle && errorHandle.normal();
