@@ -13,7 +13,8 @@ const validate = Validator({
 	},
 	password: {
 		ele: "#password",
-		text: "请正确输入密码格式"
+		text: "请正确输入密码格式",
+		resure: true
 	},
 	resure: {
 		ele: "#repassword",

@@ -22,7 +22,8 @@ const p = Validator.prototype;
 p.init = function (obj) {
 	for (let key in obj) {
 		let ele = $(obj[key].ele),	
-			type = ele.attr("type");
+			type = ele.attr("type"),
+			resure = obj[key].resure;
 		cache[key] = Validator.getValue(ele, type);
 		Object.defineProperty(this.data, key, {
 			get: function () {
@@ -50,6 +51,9 @@ p.init = function (obj) {
 						this.flag[key] = false;
 						errorHandle = errorHandle || hasError(ele, obj[key].text);
 						errorHandle.throwError();
+					}
+					if (resure) {
+						this.eles["resure"].onchange();
 					}
 				};
 			}.bind(this)();
