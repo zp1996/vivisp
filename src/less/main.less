@@ -72,6 +72,37 @@ header{
 	background: @fc;
 	color: #fff;
 }
+.login-ul{
+	list-style-type: none;
+	float: right;
+	cursor: pointer;
+	margin-right: 20px;
+}
+.login-ul{
+	li{
+		float: left;
+		width: @hh;
+		height: @hh;
+		text-align: center;
+		img{
+			vertical-align: middle;
+		}
+	}
+	li:hover{
+		background: #485053;
+	}
+}
+#up-img{
+	@uh: 40px;
+	.size(@uh, @uh);
+	border-radius: @uh / 2;
+	border: 2px solid #adb0b1;
+}
+.to-message{
+	display: inline-block;
+	.size(100%, 100%);
+	background: url("../images/icon_msg.png") no-repeat center center;
+}
 
 .main{
 	.auto();

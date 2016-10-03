@@ -12,6 +12,10 @@ header
 				li
 					a.header-link(href="./enroll") 模拟电网考试 
 		if (login)
-			a.to-login(href="./userlogin") 已经登录
+			ul.login-ul
+				li
+					a.to-message(href="./userchat")
+				li
+					img#up-img(src="images/uimages/default5.jpg")
 		else
 			a.to-login(href="./userlogin") 登录

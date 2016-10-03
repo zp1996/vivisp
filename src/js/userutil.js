@@ -26,7 +26,7 @@ function submit (validate, url) {
 										if (res.error) {
 											return $("#attention").text("服务器繁忙,请稍后再试!");
 										}
-										validate.eles[res.ele].throwError(res.msg);
+										res.ele && validate.eles[res.ele].throwError(res.msg);
 									}, () => {
 										flag = false;
 										mask.hide();

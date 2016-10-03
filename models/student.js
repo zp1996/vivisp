@@ -1,9 +1,10 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"),
+	conf = require("../conf").config;
 
 const StudentSchema = new mongoose.Schema({
-	username: String,
+	username: {type: String, unique: true},
 	password: String,
-	email: String,
+	email: {type:String, unique: true},
 	usex: String,
 	uimage: String,
 	createTime: Date,
@@ -13,7 +14,9 @@ const StudentSchema = new mongoose.Schema({
 // 保存数据前更新其时间
 StudentSchema.pre("save", function (next) {
 	if (this.isNew) {
+		const random = Math.floor(Math.random() * (+conf.images) + 1);
 		this.createTime = this.updateTime = Date.now();
+		this.uimage = `default${random}.jpg`;
 	} else {
 		this.updateTime = Date.now();
 	}
