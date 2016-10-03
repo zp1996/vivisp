@@ -77,8 +77,6 @@ header{
 	float: right;
 	cursor: pointer;
 	margin-right: 20px;
-}
-.login-ul{
 	li{
 		float: left;
 		width: @hh;
@@ -101,9 +99,48 @@ header{
 .to-message{
 	display: inline-block;
 	.size(100%, 100%);
-	background: url("../images/icon_msg.png") no-repeat center center;
+	background: url(../images/icon_msg.png) no-repeat center center;
 }
-
+#nav-list{
+	z-index: 10000;
+	display: none;
+	width: 140px;
+	background: #485053;
+	left: -80px;
+	li{
+		height: 40px;
+		width: 100%;
+		line-height: 40px;
+		border-top: 1px solid #5c6263;
+		text-align: left;
+		a{
+			width: 100%;
+			display: inline-block;
+			color: #fff;
+			cursor: pointer;
+			padding-left: 47px;
+			background: url(../images/menu_icon.png) no-repeat;
+		}
+		#setting{
+			background-position: 19px -167px;
+		}
+		#layout{
+			background-position: 19px -207px;
+		}
+	}
+	li:nth-child(1){
+		.tc;
+		color: #fff;
+		border: none;
+	}
+	li:nth-child(1):hover{
+		background: #485053;
+		text-decoration: underline;
+	}
+	li:hover{
+		background: #2c2a2e;
+	}
+}
 .main{
 	.auto();
 	min-height: calc(~"100% - @{hh}");

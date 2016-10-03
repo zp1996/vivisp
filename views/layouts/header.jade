@@ -15,7 +15,13 @@ header
 			ul.login-ul
 				li
 					a.to-message(href="./userchat")
-				li
-					img#up-img(src="images/uimages/default5.jpg")
+				li#login-nav
+					img#up-img(src="images/uimages/#{data.uimage}")
+					ul#nav-list
+						li #{data.username}
+						li 
+							a#setting(href="./profile") 我的设置
+						li
+							a#layout(href="./userlayout") 退出
 		else
 			a.to-login(href="./userlogin") 登录

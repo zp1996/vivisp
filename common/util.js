@@ -10,7 +10,7 @@ exports.render = (path, data, status) => {
 		data.login = req.session && req.session.uid;	
 		if (data.login) {
 			student.findById(data.login, (err, d) => {
-				data.img = d.uimage;
+				data.data = d;
 				const html = jade.renderFile(path, data);
 				res.status(status).end(html);
 			});
