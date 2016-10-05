@@ -95,3 +95,7 @@ exports.newsignup = function (req, res) {
 		});
 	});
 };
+exports.exit = function (req, res) {
+	delete req.session['uid'];
+	res.redirect("./");
+};

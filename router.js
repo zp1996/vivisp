@@ -11,6 +11,7 @@ router.get("/userlogin", user.login);
 router.post("/userlogin", user.signin);
 router.get("/usersignup", user.signup);
 router.post("/usersignup", user.newsignup);
+router.get("/out", user.exit);
 // 404 not Found
 router.use(home.error);
 
