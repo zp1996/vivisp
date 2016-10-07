@@ -4,7 +4,9 @@ const path = require("path"),
 	bodyparser = require("body-parser"),
 	mongoose = require("mongoose"),
 	session = require("express-session"),
-	app = new express();
+	RedisStore = require("connect-redis")(session),
+	app = new express(),
+	options = require("./conf").redis;
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/vivisp");
@@ -17,6 +19,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: false}));
 
 app.use(session({
+	store: new RedisStore(options),
 	secret: "zp1996"
 }));
 

@@ -1,8 +1,7 @@
 const util = require("../common/util"),
 	student = require("../models/student"),
 	patterns = require("../src/js/regexp"),
-	conf = require("../conf").config,
-	week = 7 * 24 * 3600 * 1000;
+	conf = require("../conf").config;
 
 exports.login = function (req, res) {
 	util.render("./views/user/login.jade", {
