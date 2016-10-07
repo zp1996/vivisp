@@ -1,7 +1,8 @@
 const util = require("../common/util"),
 	student = require("../models/student"),
 	patterns = require("../src/js/regexp"),
-	conf = require("../conf").config;
+	conf = require("../conf").config,
+	week = 7 * 24 * 3600 * 1000;
 
 exports.login = function (req, res) {
 	util.render("./views/user/login.jade", {
@@ -28,7 +29,10 @@ const handles = {
 	valfalse: (req, res) => {
 		return res.json({msg: "密码错误", flag: 0, ele: "password"});
 	},
-	valtrue: (req, res, id) => {
+	valtrue: (req, res, id, auto) => {
+		if (auto) {
+			req.session.cookie.expires = new Date(Date.now() + week);
+		}
 		req.session.uid = id;
 		req.session.save((err) => {
 			if (!err) {
@@ -47,10 +51,10 @@ exports.signin = function (req, res) {
 		var id = data && data["_id"];
 		data = `val${data ? data.password === util.encrypt(password) : 
 									data}`;
-		return handles[data](req, res, id);
+		return handles[data](req, res, id, req.body.auto);
 	});
 };
-// 验证管道
+// 验证
 function ValidatorPipe (parr, varr) {
 	var res = "";
 	parr.every((val, i) => {
@@ -95,6 +99,6 @@ exports.newsignup = function (req, res) {
 	});
 };
 exports.exit = function (req, res) {
-	delete req.session['uid'];
+	req.session.destroy();
 	res.redirect("./");
 };
