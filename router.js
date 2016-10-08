@@ -1,7 +1,7 @@
 const express = require("express"),
 	home = require("./controllers/home"),
 	user = require("./controllers/user"),
-	sign = require("./common/sign"),
+	sign = require("./middlewares/sign"),
 	router = express.Router();
 // 首页
 router.get('/', home.show);
